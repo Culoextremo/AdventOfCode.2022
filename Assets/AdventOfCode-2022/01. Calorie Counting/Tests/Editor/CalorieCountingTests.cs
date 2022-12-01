@@ -41,5 +41,19 @@ namespace AdventOfCode2022.CalorieCounting.Tests
             expedition.MostNutritiousStash
                 .Should().Be(1000);
         }
+        
+        [Test]
+        public void TopNutritiousStashes()
+        {
+            var elves = new List<Elf>() {new(), new(), new()};
+            elves[0].Store(new Meal(100));
+            elves[1].Store(new Meal(50));
+            elves[2].Store(new Meal(20));
+
+            var expedition = new Expedition(elves);
+
+            expedition.TopNutritiousStashes(2)
+                .Should().Be(150);
+        }
     }
 }

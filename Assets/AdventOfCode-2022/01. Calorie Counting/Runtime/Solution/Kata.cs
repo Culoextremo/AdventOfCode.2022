@@ -12,16 +12,17 @@ namespace AdventOfCode2022.CalorieCounting.Runtime.Application
     {
         void Start()
         {
-            Debug.Log("01. CalorieCounting 1/2 Result : "+ CalcResult());
-        }
-
-        int CalcResult()
-        {
             var allText = Resources.Load<KataInput>("CalorieCountingInput").Text;
             var expedition = DeserializeExpedition(allText);
-
-            return expedition.MostNutritiousStash;
+            ShowFirstPartResult(expedition);
+            ShowSecondPartResult(expedition);
         }
+
+        void ShowFirstPartResult(Expedition expedition) => 
+            Debug.Log("01. CalorieCounting 1/2 Result : " + expedition.MostNutritiousStash);
+        
+        void ShowSecondPartResult(Expedition expedition) => 
+            Debug.Log("02. CalorieCounting 2/2 Result : " + expedition.TopNutritiousStashes(3));
 
         static Expedition DeserializeExpedition(string allText)
         {

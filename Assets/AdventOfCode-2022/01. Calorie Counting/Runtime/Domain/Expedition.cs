@@ -14,5 +14,10 @@ namespace AdventOfCode2022.CalorieCounting.Runtime.Domain
         }
 
         public int MostNutritiousStash => elves.Max(x => x.StoredCalories);
+
+        public int TopNutritiousStashes(int topSize) => 
+            elves.OrderByDescending(x => x.StoredCalories)
+                .Take(topSize)
+                .Sum(x => x.StoredCalories);
     }
 }
