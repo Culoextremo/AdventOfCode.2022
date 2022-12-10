@@ -1,0 +1,17 @@
+{
+    "name": "RucksackReorganization.Runtime.Application",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6fd23cc9762a7df4faa7c4101381a2ad",
+        "GUID:1b9614512027c5c448c6bdce4f389ae4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

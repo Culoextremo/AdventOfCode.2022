@@ -1,0 +1,26 @@
+{
+    "name": "RucksackReorganization.Tests.Editor",
+    "rootNamespace": "AdventOfCode2022.RockPaperScissors.Tests",
+    "references": [
+        "GUID:0acc523941302664db1f4e527237feb3",
+        "GUID:27619889b8ba8c24980f49ee34dbb44a",
+        "GUID:e372c541aba5148868e12aa078ca7c20",
+        "GUID:4f3166ce75f1424a9d8c84f49b07f6c9",
+        "GUID:6fd23cc9762a7df4faa7c4101381a2ad"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,17 @@
+{
+    "name": "CalorieCounting.Runtime.Application",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6f824ae5aca994a49ae2c482d81d15fb",
+        "GUID:1b9614512027c5c448c6bdce4f389ae4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
