@@ -5,7 +5,7 @@ namespace AdventOfCode2022.RockPaperScissors.Runtime.Domain
 {
     public class Match
     {
-        public Match(Shape player, Shape rival)
+        public Match(Shape rival, Shape player)
         {
             Score = player.ScoreValue;
             if (PlayerWins(player, rival))
@@ -19,7 +19,7 @@ namespace AdventOfCode2022.RockPaperScissors.Runtime.Domain
             }
         }
 
-        public Match(Shape rival, Result result) : this(DesiredPlay(rival, result), rival) { }
+        public Match(Shape rival, Result result) : this(rival, DesiredPlay(rival, result)) { }
 
         static Shape DesiredPlay(Shape rival, Result result)
         {

@@ -10,7 +10,7 @@ namespace AdventOfCode2022.RockPaperScissors.Runtime.Application
         public Match Deserialize(string serializedMatch)
         {
             var serializedShapes = serializedMatch.Split(' ');
-            return new Match(DeserializeShape(serializedShapes[1][0]), DeserializeShape(serializedShapes[0][0]));
+            return new Match(DeserializeShape(serializedShapes[0][0]), DeserializeShape(serializedShapes[1][0]));
         }
 
         static Shape DeserializeShape(char serializedShape)
