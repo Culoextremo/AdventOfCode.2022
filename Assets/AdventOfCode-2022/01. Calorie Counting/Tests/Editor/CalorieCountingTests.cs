@@ -3,7 +3,7 @@ using AdventOfCode2022.CalorieCounting.Runtime.Domain;
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace AdventOfCode2022.CalorieCounting.Tests
+namespace AdventOfCode2022.CalorieCounting.Tests.Editor
 {
     public class CalorieCountingTests
     {

@@ -1,7 +1,9 @@
 {
     "name": "RucksackReorganization.Runtime.Domain",
     "rootNamespace": "AdventOfCode2022.RucksackReorganization.Runtime.Domain",
-    "references": [],
+    "references": [
+        "GUID:4f3166ce75f1424a9d8c84f49b07f6c9"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
