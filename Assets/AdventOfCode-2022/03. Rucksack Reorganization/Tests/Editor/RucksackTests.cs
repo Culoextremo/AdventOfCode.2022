@@ -11,8 +11,8 @@ namespace AdventOfCode2022.RucksackReorganization.Tests.Editor
         [Test]
         public void RepeatedItem()
         {
-            var sut = new Rucksack(new List<Item>()
-                { 
+            var sut = new Rucksack(new List<Item>
+            { 
                     new(1), new(3), 
                     new(1), new(2)
                 });
@@ -22,22 +22,27 @@ namespace AdventOfCode2022.RucksackReorganization.Tests.Editor
         [Test]
         public void RepeatedItemsSum()
         {
-            var sut = new Storage(new List<Rucksack>()
+            var sut = new Storage(new List<Rucksack>
             {
-                new Rucksack(new List<Item>()
-                {
-                    new(1), new(3),
-                    new(1), new(2)
-                }),
-
-                new Rucksack(new List<Item>()
-                {
-                    new(2), new(3),
-                    new(1), new(2)
-                })
+                new(new List<Item> {new(1), new(3), new(1), new(2)}),
+                new(new List<Item> {new(2), new(3), new(1), new(2)})
             });
             
             sut.TotalPriority.Should().Be(3);
+        }
+
+        [Test]
+        public void GroupsBadgeSum()
+        {
+            var sut = new Storage(new List<Rucksack>
+            {
+                new(new List<Item> {new(1), new(1)}),
+                new(new List<Item> {new(1), new(1)}),
+                new(new List<Item> {new(2), new(2)}),
+                new(new List<Item> {new(2), new(2)})
+            }, 2);
+            
+            sut.TotalBadgesPriority.Should().Be(3);
         }
     }
 }

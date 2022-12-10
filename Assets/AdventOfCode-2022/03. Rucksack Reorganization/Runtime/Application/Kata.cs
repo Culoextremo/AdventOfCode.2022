@@ -13,14 +13,24 @@ namespace AdventOfCode2022.RucksackReorganization.Runtime.Domain
         void Start()
         {
             var allText = Resources.Load<KataInput>("RucksackReorganizationInput").Text;
-            var storage = DeserializeStorage(allText);
-            ShowFirstPartResult(storage);
+           
+            ShowFirstPartResult(allText);
+            ShowSecondPartResult(allText);
         }
 
-        void ShowFirstPartResult(Storage storage) => 
+        void ShowFirstPartResult(string allText)
+        {
+            var storage = DeserializeStorage(allText, 1);
             Debug.Log("03. Rucksack Reorganization 1/2 Result : " + storage.TotalPriority);
+        }
 
-        static Storage DeserializeStorage(string allText)
+        void ShowSecondPartResult(string allText)
+        {
+            var storage = DeserializeStorage(allText, 3);
+            Debug.Log("03. Rucksack Reorganization 2/2 Result : " + storage.TotalBadgesPriority);
+        }
+
+        static Storage DeserializeStorage(string allText, int groupSize)
         {
             var serializedExpedition = allText.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
 
@@ -31,7 +41,7 @@ namespace AdventOfCode2022.RucksackReorganization.Runtime.Domain
                 rucksacks.Add(elf);
             }
 
-            var storage = new Storage(rucksacks);
+            var storage = new Storage(rucksacks, groupSize);
             return storage;
         }
 
