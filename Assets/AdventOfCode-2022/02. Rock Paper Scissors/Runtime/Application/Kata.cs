@@ -10,16 +10,27 @@ namespace AdventOfCode2022.RockPaperScissors.Runtime.Application
         void Start()
         {
             var allText = Resources.Load<KataInput>("RockPaperScissorsInput").Text;
-            var league = DeserializeLeague(allText);
 
-            Debug.Log("02. RockPaperScissors 1/2 Result : " + league.Result);
+            PrintFirstPartResult(allText);
+            PrintSecondPartResult(allText);
         }
 
-        static League DeserializeLeague(string allText)
+        static void PrintFirstPartResult(string allText)
+        {
+            var league = DeserializeLeague(allText, new ShapesMatchDeserializer());
+            Debug.Log("02. RockPaperScissors 1/2 Result : " + league.Result);
+        }
+        
+        static void PrintSecondPartResult(string allText)
+        {
+            var league = DeserializeLeague(allText, new ExpectedResultMatchDeserializer());
+            Debug.Log("02. RockPaperScissors 2/2 Result : " + league.Result);
+        }
+
+        static League DeserializeLeague(string allText, MatchDeserializer matchDeserializer)
         {
             var serializedMatches = allText.Split(Environment.NewLine);
             var league = new League();
-            var matchDeserializer = new MatchDeserializer();
             foreach (var serializedMatch in serializedMatches)
             {
                 league.Add(matchDeserializer.Deserialize(serializedMatch));

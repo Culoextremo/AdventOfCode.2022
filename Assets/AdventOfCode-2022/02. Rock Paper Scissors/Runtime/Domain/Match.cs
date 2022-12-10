@@ -1,27 +1,55 @@
-﻿namespace AdventOfCode2022.RockPaperScissors.Runtime.Domain
+﻿using System;
+using static AdventOfCode2022.RockPaperScissors.Runtime.Domain.Shape;
+
+namespace AdventOfCode2022.RockPaperScissors.Runtime.Domain
 {
     public class Match
     {
         public Match(Shape player, Shape rival)
         {
-            Result = player.ScoreValue;
+            Score = player.ScoreValue;
             if (PlayerWins(player, rival))
             {
-                Result += 6;
+                Score += 6;
             }
 
             if (player.Equals(rival))
             {
-                Result += 3;
+                Score += 3;
             }
         }
-        static bool PlayerWins(Shape player, Shape rival)
+
+        public Match(Shape rival, Result result) : this(DesiredPlay(rival, result), rival) { }
+
+        static Shape DesiredPlay(Shape rival, Result result)
         {
-            return (player.Equals(Shape.Rock) && rival.Equals(Shape.Scissors))
-                   || (player.Equals(Shape.Paper) && rival.Equals(Shape.Rock))
-                   || (player.Equals(Shape.Scissors) && rival.Equals(Shape.Paper));
+            return result switch
+            {
+                Result.Draw => rival,
+                Result.Win => VictoriousPlayAgainst(rival),
+                Result.Lose => LoserPlayAgainst(rival),
+                _ => throw new ArgumentOutOfRangeException()
+            };
         }
 
-        public int Result { get; }
+        static Shape LoserPlayAgainst(Shape shape) => VictoriousPlayAgainst(VictoriousPlayAgainst(shape));
+
+        static Shape VictoriousPlayAgainst(Shape rival)
+        {
+            if (rival.Equals(Rock))
+                return Paper;
+            if (rival.Equals(Paper))
+                return Scissors;
+            return Rock;
+        }
+
+        static bool PlayerWins(Shape player, Shape rival)
+        {
+            return (player.Equals(Rock) && rival.Equals(Scissors))
+                   || (player.Equals(Paper) && rival.Equals(Rock))
+                   || (player.Equals(Scissors) && rival.Equals(Paper));
+        }
+
+        public int Score { get; }
     }
 }

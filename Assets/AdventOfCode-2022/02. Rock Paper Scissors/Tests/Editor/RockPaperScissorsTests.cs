@@ -14,7 +14,7 @@ namespace AdventOfCode2022.RockPaperScissors.Tests
         {
             var sut = new Match(Rock, Scissors);
 
-            sut.Result
+            sut.Score
                 .Should().Be(7);
         }
 
@@ -23,7 +23,7 @@ namespace AdventOfCode2022.RockPaperScissors.Tests
         {
             var sut = new Match(Scissors, Rock);
 
-            sut.Result
+            sut.Score
                 .Should().Be(3);
         }
         
@@ -32,7 +32,7 @@ namespace AdventOfCode2022.RockPaperScissors.Tests
         {
             var sut = new Match(Rock, Paper);
 
-            sut.Result
+            sut.Score
                 .Should().Be(1);
         }
 
@@ -41,7 +41,7 @@ namespace AdventOfCode2022.RockPaperScissors.Tests
         {
             var sut = new Match(Rock, Rock);
 
-            sut.Result
+            sut.Score
                 .Should().Be(4);
         }
 
@@ -50,7 +50,7 @@ namespace AdventOfCode2022.RockPaperScissors.Tests
         {
             var sut = new Match(Paper, Rock);
 
-            sut.Result
+            sut.Score
                 .Should().Be(8);
         }
         
@@ -59,7 +59,7 @@ namespace AdventOfCode2022.RockPaperScissors.Tests
         {
             var sut = new Match(Scissors, Paper);
 
-            sut.Result
+            sut.Score
                 .Should().Be(9);
         }
 
@@ -73,6 +73,30 @@ namespace AdventOfCode2022.RockPaperScissors.Tests
 
             sut.Result
                 .Should().Be(12);
+        }
+
+        [Test]
+        public void DesiredResultIsDraw()
+        {
+            var sut = new Match(Rock, Result.Draw);
+
+            sut.Should().BeEquivalentTo(new Match(Rock, Rock));
+        }
+        
+        [Test]
+        public void DesiredResultIsWin()
+        {
+            var sut = new Match(Rock, Result.Win);
+
+            sut.Should().BeEquivalentTo(new Match(Paper, Rock));
+        }
+        
+        [Test]
+        public void DesiredResultIsLose()
+        {
+            var sut = new Match(Rock, Result.Lose);
+
+            sut.Should().BeEquivalentTo(new Match(Scissors, Rock));
         }
     }
 }

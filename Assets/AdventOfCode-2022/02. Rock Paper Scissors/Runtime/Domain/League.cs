@@ -13,6 +13,6 @@ namespace AdventOfCode2022.RockPaperScissors.Tests.AdventOfCode_2022._02._Rock_P
             matches.Add(match);
         }
         
-        public int Result => matches.Sum(x => x.Result);
+        public int Result => matches.Sum(x => x.Score);
     }
 }
