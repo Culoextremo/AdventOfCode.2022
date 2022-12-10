@@ -1,0 +1,4 @@
+{
+	"name": "RockPaperScissors.Runtime.Domain",
+	"rootNamespace": "AdventOfCode2022.RockPaperScissors.Runtime.Domain"
+}
